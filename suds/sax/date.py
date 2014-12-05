@@ -285,6 +285,8 @@ class DateTime(Date,Time):
             return
         if isinstance(date, basestring):
             part = date.split('T')
+            if len(part) == 1:
+                part.append('00:00:00')
             Date.__init__(self, part[0])
             Time.__init__(self, part[1], 0)
             self.datetime = \
